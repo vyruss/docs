@@ -46,6 +46,13 @@ For backward compatibility, BDR still supports configuring synchronous
 replication with `synchronous_commit` and `synchronous_standby_names`. See
 [Legacy synchronous replication](durability#legacy-synchronous-replication-using-bdr),
 but consider using [Group Commit](group-commit) instead.
+
+!!! WARNING
+    While using multiple BDR enabled databases (we advise against it)
+    the lsn sync confirmation may come from a diferent database on a
+    node that is in our synchronous_standby_names and thus not assure
+    that the data is really synced on the database that we really want.
+
 ## Terms and definitions
 
 BDR nodes can take different

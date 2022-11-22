@@ -44,6 +44,12 @@ Replication](https://www.postgresql.org/docs/11/warm-standby.html#SYNCHRONOUS-RE
 (PSR), which is uni-directional, but offers a synchronous variant that
 can used in combination with BDR.
 
+!!! WARNING
+    While using multiple BDR enabled databases (we advise against it)
+    the lsn sync confirmation may come from a diferent database on a
+    node that is in our synchronous_standby_names and thus not assure
+    that the data is really synced on the database that we really want.
+
 This chapter covers the various forms of synchronous or eager
 replication and its timing aspects.
 
